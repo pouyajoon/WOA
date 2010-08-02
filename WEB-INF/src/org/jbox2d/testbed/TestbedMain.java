@@ -592,6 +592,49 @@ public class TestbedMain extends PApplet {
     		return;
     	}    	
     	
+    	if (key == 'z') 
+    	{
+    		ProcessingDebugDraw d = (ProcessingDebugDraw)(currentTest.m_debugDraw);
+    		Vec2 oldCenter = d.getScreenToWorld(width / 2.0f, height / 2.0f);
+    		//int notches = e.getWheelRotation();
+        	//Vec2 oldCenter = d.getScreenToWorld(width / 2.0f, height / 2.0f);
+        	//Change the zoom and clamp it to reasonable values 
+        	//System.out.println("scalefactor : " + d.scaleFactor);
+        	//if (notches < 0) {
+        		d.scaleFactor = min(500f, d.scaleFactor * 1.3f);
+        	//}
+        	//else if (notches > 0) {
+        		//d.scaleFactor = max(.01f, d.scaleFactor / 1.3f);
+        	Vec2 newCenter = d.getScreenToWorld(width / 2.0f, height / 2.0f);
+        	d.transX -= (oldCenter.x - newCenter.x) * d.scaleFactor;
+        	d.transY -= (oldCenter.y - newCenter.y) * d.scaleFactor;
+    	}   	
+    	if (key == 'a') 
+    	{
+    		ProcessingDebugDraw d = (ProcessingDebugDraw)(currentTest.m_debugDraw);
+    		Vec2 oldCenter = d.getScreenToWorld(width / 2.0f, height / 2.0f);
+    		//int notches = e.getWheelRotation();
+        	//Vec2 oldCenter = d.getScreenToWorld(width / 2.0f, height / 2.0f);
+        	//Change the zoom and clamp it to reasonable values 
+        	//System.out.println("scalefactor : " + d.scaleFactor);
+        	//if (notches < 0) {
+        		d.scaleFactor = min(500f, d.scaleFactor / 1.3f);
+        	//}
+        	//else if (notches > 0) {
+        		//d.scaleFactor = max(.01f, d.scaleFactor / 1.3f);
+        	Vec2 newCenter = d.getScreenToWorld(width / 2.0f, height / 2.0f);
+        	d.transX -= (oldCenter.x - newCenter.x) * d.scaleFactor;
+        	d.transY -= (oldCenter.y - newCenter.y) * d.scaleFactor;
+    	}   	
+    	
+
+    	
+    	//NEEDCHECK
+    	//currentTest.cachedCamScale = d.scaleFactor;                	
+    	//System.out.println("old center : " + oldCenter.toString() + ", new center =" + newCenter.toString());
+
+    	
+    	
     	if (currentTest == null) return;
     	if (key == 'r') currentTest.needsReset = true;
     	//if (key == ' ') currentTest.launchBomb();

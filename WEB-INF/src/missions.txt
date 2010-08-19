@@ -1,0 +1,7 @@
+Collect food
+
+search for food
+if find food 
+	collect max
+	bring food home
+	end of mission

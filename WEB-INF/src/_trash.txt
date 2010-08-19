@@ -1,3 +1,4 @@
+Testing GIT
 		
 		//seeColony(this.getColony());
 		//System.out.println("ant life : " + this.toString());

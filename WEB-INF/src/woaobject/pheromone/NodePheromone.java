@@ -19,28 +19,21 @@ public class NodePheromone extends WOAObject
 	public NodePheromone(AntBox w, Position _pos, GraphTrack _t, TrackNode _tn)
 	{
 		super(w, _pos);
-		// TODO Auto-generated constructor stub
 		type = "pheromone";
 		track = _t;
 		tn = _tn;
 		adn.set("size", new Property("size", 20.0f));		
 		adn.set("weight", new Property("weight", 0.0f));	
 		oldSize = 0;
-
 		createBody(currentBox);
 		currentBox.world.addNodePheromone(this);
 		System.out.println("new node pheromone : is static ?" + myBody.isStatic());
-		//world.addPheromone(this);
 	}	
-	
 	
 	@Override
 	public void createBody(AntBox _targetBox)
 	{
 		Body b = currentBox.CreateJCircleBodyStatic(pos.getVec2(), adn.getCurrent("size"), 0.0f, 0.0f);
-		
-		//Body b = world.CreateJBoxBody(new Vec2(adn.getCurrent("size"), adn.getCurrent("size")), pos.getVec2(), adn.getCurrent("weight"), 0.0f);
-		//System.out.println("body created POS : " + b.getPosition().toString());
 		setMyBody(b);
 		setBodyAngle(new Float(0));
 		if (myBody != null)
@@ -49,18 +42,6 @@ public class NodePheromone extends WOAObject
 			myBody.m_shapeList.getFilterData().maskBits = 0x0004;				
 		}
 		currentBox = _targetBox;
-	}
-
-	@Override
-	public float getSize()
-	{
-		return tn.getMotivation() / 5.0f;
-	}
-
-	@Override
-	public float getWeight()
-	{
-		return 0f;
 	}
 
 	@Override
@@ -75,9 +56,17 @@ public class NodePheromone extends WOAObject
 		if (tn.toHome == null)
 		{
 			if (tn.toTargets.size() == 0)
-			{
 				addToGarbage();
-			}
 		}
+	}
+
+	@Override
+	public float getSize()	{
+		return tn.getMotivation() / 5.0f;
+	}
+
+	@Override
+	public float getWeight()	{
+		return 0f;
 	}
 }	

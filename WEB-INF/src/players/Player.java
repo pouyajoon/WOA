@@ -9,7 +9,8 @@ public class Player
 	public String name;
 	public ArrayList<Queen> queens = new ArrayList<Queen>();
 
-	public Player(String name) {
+	public Player(String name) 
+	{
 		super();
 		this.name = name;
 	}

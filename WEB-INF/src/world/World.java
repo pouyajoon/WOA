@@ -17,40 +17,25 @@ public class World {
 
 	public World(Logger _log)
 	{
-		//this.ESServer = ESServer;
-		
 		this.log = _log;
 		log.debug("World is going to be set.");
-		
 		try
 		{
 			SetupScreens(1);
 		}
-		catch (Exception e) {
+		catch (Exception e)
+		{
 			log.debug("error creatin world", e);
 		}
-		
 		Colony c = colonyCreate(new Position(0, 50, 50));
 		c.antCreate();
-		
-		/*
-		demo = new AntPhysics();
-		demo.start();
-		
-		Body faller = new StaticBody("FallerBox", new Box(40, 40));
-		faller.setPosition(150, 150);
-		demo.getWorld().add(faller);
-		*/				
 		log.info("World has been created.");
 	}
 	
 	public void SetupScreens(Integer max_screen)
 	{
 		for (Integer i = 0; i < max_screen; ++i)
-		{
 			colonys_screen.put(i, new ArrayList<Colony>());
-		}
-		
 	}
 	
 	
@@ -61,10 +46,6 @@ public class World {
 		{
 			final Colony c = i.next();
 			c.life();
-			//if (Application.mytime.worldtime % 30 == 0)
-			{
-				//c.antCreate();
-			}
 		}
 	}
 
@@ -74,7 +55,7 @@ public class World {
 		Colony c = null;
 		try 
 		{
-			//c = new Colony(this., pos);
+
 		} 
 		catch (Exception e)
 		{
@@ -96,16 +77,6 @@ public class World {
 		log.debug("Colony added to screen " + screen + ", size : " + colonys_screen.size());
 		ArrayList<Colony> colonys = colonys_screen.get(screen);
 		colonys.add(c);
-		
-		//if (colonys_screen.size() == 0 || colonys_screen.get(screen) == null)
-		{
-		//	colonys_screen.set(screen, new ArrayList<Colony>());
-		//	colonys_screen.get(screen).add(c);
-		}
-		//else
-		{
-			
-		}	
 	}
 
 	public ArrayList<Colony> getColonys_screen(final Integer screen) {

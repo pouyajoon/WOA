@@ -3,10 +3,6 @@
  */
 package ant.properties;
 
-/**
- * @author PMOHTACH
- *
- */
 public class Property
 {
 	public float min;
@@ -14,9 +10,6 @@ public class Property
 	public float current;
 	public String type;
 
-	/**
-	 * 
-	 */
 	public Property(String _type, float _max) 
 	{
 		setMin(0);
@@ -25,6 +18,11 @@ public class Property
 		setType(_type);
 	}	
 
+	@Override
+	public String toString()	{
+		return "[" + type + ":" + current + "/" + max + "]";
+	}
+	
 	/**
 	 * @return the min
 	 */
@@ -74,17 +72,8 @@ public class Property
 		this.type = type;
 	}
 	
-	@Override
-	public String toString()
-	{
-		return "[" + type + ":" + current + "/" + max + "]";
-		
-	}
 	
-	public float getRatio()
-	{
+	public float getRatio()	{
 		return getCurrent() / getMax();
 	}
-
-
 }

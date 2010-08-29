@@ -20,7 +20,6 @@ public class GraphTrack
 {
 	public AntWorld w = null;
 	
-	//public TrackNode currentNode = null;
 	public ArrayList<TrackNode> nodes = new ArrayList<TrackNode>();
 	public boolean trackCompleted = false;
 	
@@ -36,7 +35,6 @@ public class GraphTrack
 		// update nodes on the target
 		initialTarget.tracknodes.put(_ant.getPlayer(), tn);
 		nodes.add(tn);
-		//currentNode = tn;
 		w.graphtracks.add(this);
 		System.out.println("NEW Graph Track created");
 		return tn;
@@ -48,7 +46,6 @@ public class GraphTrack
 		tn.toTargets.put(target, currentNode);
 		nodes.add(tn);
 		currentNode.toHome = tn;
-		//currentNode = tn;
 		trackCompleted = true;
 		return tn;
 	}
@@ -60,7 +57,6 @@ public class GraphTrack
 		p.tn = tn;
 		currentNode.toHome = tn;
 		tn.toTargets.put(target, currentNode);
-		//currentNode = tn;
 		nodes.add(tn);
 		return tn;
 	}
@@ -77,7 +73,6 @@ public class GraphTrack
 		return msg;	
 	}
 	
-	
 	public void updateNodeFromNews(Ant _ant, TrackNode tn, WOAObject target, float motivation)
 	{
 		if (tn == null) return;
@@ -89,16 +84,11 @@ public class GraphTrack
 				TrackNode lastTargetNode = tn.toTargets.get(target);
 				lastTargetNode.toHome = null;	
 				if (lastTargetNode.woao.type.equals("food"))
-				{
 					lastTargetNode.woao.tracknodes.remove(_ant.getPlayer());
-				}
 			}				
 			tn.toTargets.remove(target);
-//			System.out.println("targets size : " + tn.toTargets.size());
 		}		
 	}
-	
-
 	
 	public void drawTrackLine()
 	{		
@@ -113,7 +103,6 @@ public class GraphTrack
 					Integer d = AntZone.NextBoxInMap(tn.toHome.woao.currentBox, tn.woao.currentBox);
 					v1 = AntZone.getTargetPosition(tn.toHome.woao.currentBox, tn.woao.currentBox, d, v1.getVec2());
 				}
-				
 				if (w.parent.currentTest.equals(tn.woao.currentBox))
 				{
 					tn.woao.currentBox.m_debugDraw.drawSegment(v1.getVec2(), v2.getVec2(), new Color3f(255.0f, 0f, 0f));	
@@ -124,153 +113,22 @@ public class GraphTrack
 
 	public void life() throws Throwable
 	{
-		
-		//System.out.println("graph life : " + nodes.size());
-		//if (!stillInUsed()){
-		
-		//ArrayList<TrackNode> should_be_deleted = new ArrayList<TrackNode>();
-		
-		
-
-		
-//		if (motivation == false)
-//		{
-//			//should_be_deleted = nodes;
-//		}
-//		
-/*
-		if (nodes.size() != 0)
-		{
-			System.out.println("tracknodes : " + nodes.size());
-		}
-		if (nodes.size() <= 2)
-		{
-			for (TrackNode n : nodes)
-			{
-				System.out.println("tracknodes woao : " + n.woao);
-				if (n.woao.type.equals("pheromone"))
-				{
-					System.out.println("pheromone: " + n.getMotivation());
-				}
-			}
-		}
-*/
-		
-//		if (nodes.size() == 2)
-//		{
-//			for (Integer i = 0; i < 2; ++i)
-//			{
-//				if (nodes.get(i).woao.type.equals("food"))
-//				{
-//					if (nodes.get(i).woao.adn.getCurrent("food_storage") == 0)
-//					{
-//						Integer j = 0;
-//						if (i == 0) j = 1;
-////						Integer j = !i;
-//						if (nodes.get(j).woao.type.equals("colony"))
-//						{
-//							System.out.println("special failure cleaning");
-//							should_be_deleted.add(nodes.get(i));	
-//						}							
-//					}					
-//				}
-////				System.out.println("tracknodes woao : " + n.woao);
-//			}
-//
-//		}
-//
-//		if (nodes.size() == 1)
-//		{
-//			if (nodes.get(0).woao.type.equals("colony") && trackCompleted == true)
-//			{
-//				System.out.println("only colony delete it");
-//				should_be_deleted.add(nodes.get(0));
-//			}
-//			if (nodes.get(0).woao.type.equals("food") && trackCompleted == true)
-//			{
-//				if (nodes.get(0).woao.adn.getCurrent("food_storage") == 0)
-//				{
-//					System.out.println("only empty food : clean track");
-//					should_be_deleted.add(nodes.get(0));
-//				}
-//			}
-//			
-//			
-//		}
-		// TODO Auto-generated method stub
-		
-//		for(TrackNode tn : nodes)
-//		{
-//			if (tn.woao == null)
-//			{
-//				System.out.println("my bag is empty");
-//			}
-//			if (tn.toTargets.size() == 0 && tn.woao.type.equals("food"))
-//			{
-//				if (tn.toHome == null && trackCompleted)
-//				{
-//					should_be_deleted.add(tn);
-//				}
-//			}		
-//			if (tn.toTargets.size() == 0 && !tn.woao.type.equals("food"))
-//			{
-//				if (tn.toHome == null)
-//				{
-//					should_be_deleted.add(tn);
-//				}
-//			}
-//			/*
-//			if (tn.toTargets.size() == 0 && !tn.woao.type.equals("colony"))
-//			{
-//				if (tn.toHome == null)
-//				{
-//					should_be_deleted.add(tn);
-//				}
-//			}	
-//			*/		
-//		}		
-		//System.out.println("size of should be deleted : " + should_be_deleted.size());
-//		Iterator<TrackNode> i = should_be_deleted.iterator();
-//		while (i.hasNext())
-//		{
-//			TrackNode tn = i.next();
-//			if (tn.woao.type.equals("pheromone"))
-//			{
-//				tn.woao.finalize();
-//			}
-//			i.remove();
-//		}
-//		for(TrackNode tn : should_be_deleted)
-//		{
-//			if (tn.woao.type.equals("pheromone"))
-//			{
-//				tn.woao.finalize();
-//			}
-//			nodes.remove(tn);
-//		}
-		//System.out.println("size of nodes : " + nodes.size());
 		drawTrackLine();
 	}
 	
 	public Boolean stillInUsed()
 	{
-		//System.out.println("graph request usage : " + nodes.size());
 		for (TrackNode trackNode : nodes)
 		{
-			//System.out.println("tracknode woao : " + trackNode.getMotivation() + ", " + trackNode.woao.toString());			
 			if (trackNode.woao.type.equals("food"))
 			{
 				if (trackNode.woao.adn.getCurrent("storage_food") != 0)
-				{
 					return true;
-				}
 			}
 			else
 			{
 				if (trackNode.getMotivation() != 0)
-				{
 					return true;
-				}				
 			}
 		}
 		return false;		
@@ -278,7 +136,6 @@ public class GraphTrack
 	
 	public void finalize()
 	{
-		//System.out.println("finalize graph track");
 		try 
 		{
 			Iterator<TrackNode> i = nodes.iterator();
@@ -286,16 +143,12 @@ public class GraphTrack
 			{
 				final TrackNode tn = i.next();
 				if (tn.woao.type.equals("pheromone"))
-				{
 					tn.woao.finalize();
-					//tn = null;					
-				}
 				i.remove();
 			}			
 		}						
 		catch (Throwable e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

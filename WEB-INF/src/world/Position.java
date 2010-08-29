@@ -22,26 +22,24 @@ public class Position implements Serializable{
 		return new Position (getPos().get_map(), getPos().getX(), getPos().getY());		
 	}
 	
-	public Position getPos()
-	{
-		return this;
-	}
-	
+
 	@Override
 	public String toString()
 	{
 		return "[" + get_map() + "," + getX() + "," + getY() + "]";
 	}
 	
-	public void setPos(Integer map_num, float x, float y)
-	{
+	public Position getPos()	{
+		return this;
+	}
+	
+	public void setPos(Integer map_num, float x, float y)	{
 		setX(x);
 		setY(y);
 		set_map(map_num);		
 	}
 	
-	public Vec2 getVec2()
-	{
+	public Vec2 getVec2()	{
 		return new Vec2(getX(), getY());
 	}
 	

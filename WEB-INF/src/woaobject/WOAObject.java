@@ -1,6 +1,5 @@
 package woaobject;
 
-
 import java.util.HashMap;
 
 import org.jbox2d.collision.Distance;
@@ -21,24 +20,18 @@ import ant.properties.Property;
 import com.unicate.DrawObject;
 
 public class WOAObject  {
-
-	public Integer id = 0;
-	public Position pos = null;
-	public Body myBody = null;
-	public float direction = 0; 
-	
-	//public AntWorld world = null;
-	public AntBox currentBox = null;
-	public String type = null;
-	public ADN adn = null;
-	
-	public Integer lifestep = 0;
-	public Integer lifestepmax = 60;
-	
+	public Integer 		id = 0;
+	public Position 	pos = null;
+	public Body 		myBody = null;
+	public float 		direction = 0; 
+	public AntBox 		currentBox = null;
+	public String 		type = null;
+	public ADN 			adn = null;
+	public Integer 		lifestep = 0;
+	public Integer 		lifestepmax = 60;
 	public HashMap<Integer, WOAObject> catchedBy = new HashMap<Integer, WOAObject>();	
 	public HashMap<Player, TrackNode> tracknodes = new HashMap<Player, TrackNode>();
 	
-
 	/**
 	 * @param w : the Antworld attached to the object
 	 * @param pos : object's position
@@ -47,7 +40,6 @@ public class WOAObject  {
 	//public WOAObject(AntWorld w, Position _pos) {
 	public WOAObject(AntBox _antBox, Position _pos) {
 		super();
-		//world = w;
 		currentBox = _antBox;
 		adn = new ADN();
 		setPos(_pos);
@@ -60,9 +52,7 @@ public class WOAObject  {
 	{
 		lifestep++;
 		if (lifestep > lifestepmax)
-		{
 			lifestep = 1;
-		}
 	}
 	
 	public void createBody(AntBox _targetBox)
@@ -74,20 +64,6 @@ public class WOAObject  {
 		currentBox.destroyBody(myBody);
 		myBody = null;
 	}
-	
-	/**
-	 * @return the type 
-	 */
-	public String getType() {
-		return type;
-	}
-
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
 
 	/**
 	 * Add the WoaObject to the garbage, will be destroyed later
@@ -95,19 +71,8 @@ public class WOAObject  {
 	public void addToGarbage()
 	{
 		currentBox.world.garbage.put(this.id, this);
-		//System.out.println("add to garbage : " + toString());
 	}
 
-	public float getWeight()
-	{
-		return 10.0f;
-	}
-	
-	public float getSize()
-	{
-		return adn.getCurrent("size");
-	}
-	
 	/**
 	 * the time to live..., do your custom actions
 	 * should be override
@@ -120,7 +85,7 @@ public class WOAObject  {
 	
 	public void collisionPersists(WOAObject other)
 	{
-	
+
 	}
 	
 	/**
@@ -139,25 +104,10 @@ public class WOAObject  {
 	//DistanceJointDef
 	public RevoluteJointDef jointInit(WOAObject other, Vec2 anchor)
 	{
-
-		//PrismaticJointDef pj = new PrismaticJointDef();
 		RevoluteJointDef jd = new RevoluteJointDef();
 		jd.collideConnected = true;
 		jd.enableMotor = false;
-		//DistanceJointDef dj = new DistanceJointDef();
-		/*
-		pj.initialize(this.myBody, other.myBody, this.myBody.getWorldCenter(), new Vec2(0,0));
-		pj.lowerTranslation = 0;
-		pj.upperTranslation = 0;
-		pj.enableLimit = true;
-		pj.enableMotor = false;
-		*/
-		//dj.initialize(this.myBody, other.myBody, anchor, anchor);
-		//dj.length = 0;
-		//this.myBody.getPosition()
 		jd.initialize(this.myBody, other.myBody, anchor);
-		//pj.
-
 		return jd;
 	}	
 
@@ -165,9 +115,7 @@ public class WOAObject  {
 	{
 		// if the joint exists destroy it
 		if (j != null)
-		{
 			currentBox.destroyJoint(j);	
-		}
 	}
 
 	
@@ -179,9 +127,7 @@ public class WOAObject  {
 	{
 		String str = "object id=" + id + ", type=" + type;
 		for (Property p : adn.properties.values())
-		{
 			str += p.toString() + ", ";
-		}
 		return str;		
 	}
 	
@@ -196,84 +142,6 @@ public class WOAObject  {
 	}
 	
 	/**
-	 * @return the physical body element
-	 */
-	public Body getMyBody() {
-		return myBody;
-	}
-	/**
-	 * @param myBody : set the physical body
-	 */
-	public void setMyBody(Body myBody) {
-		
-		this.myBody = myBody;
-		if (myBody != null)
-		{
-			myBody.m_userData = this;
-			// update woa object position with body position
-			UpdateBodyPosition();
-		}
-		
-		//myBody.setUserData(this);
-				
-		
-		
-		
-		
-	}
-
-	/**
-	 * @param pos : set the pos
-	 */
-	public void setPos(Position pos) {
-		this.pos = pos;
-	}
-	
-	/**
-	 * @return the drawObject of the WOAObject
-	 */
-	public DrawObject getDrawObject()
-	{ 
-		//Position p = getPos();
-		Position p = new Position(getPos()._map, myBody.getPosition().x, myBody.getPosition().y);
-		DrawObject dobj = new DrawObject(this.id, p, this.type);
-		dobj.size = getSize();
-		dobj.direction = this.getMyBody().getAngle(); //    direction;
-		return dobj;
-	}
-	
-	public void setBodyAngle(Float angle_r)
-	{
-		if (myBody != null)
-		{
-			if (!angle_r.isNaN())
-			{
-				//System.out.println("set angle to : " + angle_r);
-				myBody.m_sweep.a = angle_r;			
-			}
-		}
-	}
-	
-	/**
-	 * @return the position
-	 */
-	public Position getPos() {
-		float x = 0.0f;
-		float y = 0.0f;
-		if (myBody != null && myBody.getPosition() != null)
-		{
-			x = myBody.getPosition().x;
-			y = myBody.getPosition().y;			
-		}
-		//else
-		{
-			x = pos.x;
-			y = pos.y;
-		}
-		return new Position(pos._map, x, y);
-	}
-	
-	/**
 	 * update the WoaObject position with physical object position ...
 	 * should be reviewd
 	 */
@@ -283,53 +151,16 @@ public class WOAObject  {
 		pos.y = myBody.getPosition().y;		
 	}
 	
-	
-	//public void reduce_
-	
 	/**
 	 * Move the object using the force applied
 	 * @param force : apply the force to the object
 	 */
 	public void moveTo(Vec2 new_pos)
 	{
-		// update the physical object position
-		
-//		myBody.applyForce(force.getVec2(), myBody.getPosition());
 		// update the woaoject position from physics
 		UpdateBodyPosition();
 	}
 
-	
-//	public void KeepItInWorld()
-//	{
-//		//if (new_pos._map != getPos().x)
-//		{
-//			//leaving zone
-//			//return new_pos;
-//		}
-//		//check top
-//		/*
-//		float x = myBody.getPosition().x;
-//		float y = myBody.getPosition().y;
-//		
-//		if (y > world.antBox.size_y - 100)
-//		{
-//			y = world.antBox.size_y - 100;
-//			
-//		}
-//		//check bottom
-//		if (y < 0 + 100)
-//		{
-//			myBody.m_xf.position.y = 100;
-//			System.out.println("object is out from bottom");
-//		}		
-//		//check left
-//		//check right	
-//		*/
-//		//update the woaboject position
-//		UpdateBodyPosition();
-//		
-//	}
 
 	/**
 	 * Should be override
@@ -351,7 +182,6 @@ public class WOAObject  {
 	 */
 	public void finalize() throws Throwable
 	{		
-		
 	  for (WOAObject woaobject_catchedby : catchedBy.values())
 	  { 	
 		  if (woaobject_catchedby.type.equals("ant"))
@@ -361,28 +191,104 @@ public class WOAObject  {
 		  }		  
 	  }	 
 	  currentBox.world.woal.remove_o(id);
-	  //do finalization here
 	  if (myBody != null)
-	  {
-		 //JointEdge je = myBody.getJointList();
 		 currentBox.destroyBody(myBody);
-		 //myBody = null;
-	  }
-	  
-
-	  //super.finalize(); //not necessary if extending Object.
 	  localfinalize();
 	}
+
 	
-	public float getDistance(WOAObject other)
-	{
+	/**
+	 * @return the type 
+	 */
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public float getWeight()	{
+		return 10.0f;
+	}
+	
+	public float getSize()	{
+		return adn.getCurrent("size");
+	}
+		
+	
+	public float getDistance(WOAObject other)	{
 		Vec2 x1 = new Vec2();
 		Vec2 x2 = new Vec2();
 
 		Distance d = new Distance();
 		float distance = d.distance(x1, x2, this.getMyBody().getShapeList(), this.getMyBody().getXForm(), other.getMyBody().getShapeList(), other.getMyBody().getXForm());
-		//System.out.println("distance= " + distance + ", x1:" + x1.toString() + ", x2:" + x2.toString());
 		return distance;
 	}
+
+	/**
+	 * @return the physical body element
+	 */
+	public Body getMyBody() {
+		return myBody;
+	}
+	/**
+	 * @param myBody : set the physical body
+	 */
+	public void setMyBody(Body myBody) {
+		
+		this.myBody = myBody;
+		if (myBody != null)
+		{
+			myBody.m_userData = this;
+			// update woa object position with body position
+			UpdateBodyPosition();
+		}
+	}
+
+	/**
+	 * @param pos : set the pos
+	 */
+	public void setPos(Position pos) {
+		this.pos = pos;
+	}
 	
+	/**
+	 * @return the drawObject of the WOAObject
+	 */
+	public DrawObject getDrawObject()	{ 
+		//Position p = getPos();
+		Position p = new Position(getPos()._map, myBody.getPosition().x, myBody.getPosition().y);
+		DrawObject dobj = new DrawObject(this.id, p, this.type);
+		dobj.size = getSize();
+		dobj.direction = this.getMyBody().getAngle(); //    direction;
+		return dobj;
+	}
+	
+	public void setBodyAngle(Float angle_r)	{
+		if (myBody != null)
+		{
+			if (!angle_r.isNaN())
+				myBody.m_sweep.a = angle_r;			
+		}
+	}
+	
+	/**
+	 * @return the position
+	 */
+	public Position getPos() {
+		float x = 0.0f;
+		float y = 0.0f;
+		if (myBody != null && myBody.getPosition() != null)
+		{
+			x = myBody.getPosition().x;
+			y = myBody.getPosition().y;			
+		}
+		x = pos.x;
+		y = pos.y;
+		return new Position(pos._map, x, y);
+	}	
 }

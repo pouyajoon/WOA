@@ -36,10 +36,11 @@ public class Ant extends WOAObject
 	public Ant(Colony c)
 	{			
 		super(c.currentBox,c.getPos().clone());		
+		float r = 5f;
+
 		this.setColony(c);
 		// create ant in ant box
 		type = "ant";
-		float r = 5f;
 		adn.set("size", new Property("size", r));		
 		adn.set("weight", new Property("weight", 1.0f));
 		adn.set("storage_food", new Property("storage_food", 26.0f));		
@@ -83,7 +84,8 @@ public class Ant extends WOAObject
 	@Override
 	public void boundaryViolated()
 	{
-		if (myBody == null) return;
+		if (myBody == null) 
+			return;
 		int direction = currentBox.getBoundarySide(myBody.getPosition());
 		AntBox boxTarget = currentBox.world.antzone.getTargetBoxUsingDirection(currentBox, direction);
 		pos =  currentBox.world.antzone.getTargetPosition(currentBox, boxTarget, direction, myBody.getPosition());

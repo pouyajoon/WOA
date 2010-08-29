@@ -8,7 +8,7 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/slick.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/core.jar"/>
-	<classpathentry kind="lib" path="/home/aurel/src/red5-0.9.1/red5.jar"/>
+	<classpathentry kind="lib" path="D:/woa/red5-0.8.0/red5.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/JBox2D-svn"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

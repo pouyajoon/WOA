@@ -26,7 +26,7 @@ public class AntWorld {
 	public TestbedMain parent;
 	
 	public static ArrayList<Colony> colonys = new ArrayList<Colony>();
-	public static HashMap<Integer, ArrayList<Colony>> colonys_screen = new HashMap<Integer, ArrayList<Colony>>();
+	//public static HashMap<Integer, ArrayList<Colony>> colonys_screen = new HashMap<Integer, ArrayList<Colony>>();
 	//public ArrayList<DrawObject> action_fifo = new ArrayList<DrawObject>();
 	public WOAObjectListner woal = null;
 	
@@ -63,7 +63,7 @@ public class AntWorld {
 			
 			for (Integer i = 0; i < antzone.max_screens; ++i)
 			{
-				colonys_screen.put(i, new ArrayList<Colony>());
+				//colonys_screen.put(i, new ArrayList<Colony>());
 				woal.all_objects_screen.put(i, new ArrayList<WOAObject>());
 			}			
 			//SetupScreens();
@@ -185,26 +185,26 @@ public class AntWorld {
 	}
 
 	// add a colony to a screen
-	public void addColonys_screen(final Integer screen, final Colony c) 
-	{	
-		log.debug("Colony added to screen " + screen + ", size : " + colonys_screen.size());
-		ArrayList<Colony> colonys = colonys_screen.get(screen);
-		colonys.add(c);
-		
-		//if (colonys_screen.size() == 0 || colonys_screen.get(screen) == null)
-		{
-		//	colonys_screen.set(screen, new ArrayList<Colony>());
-		//	colonys_screen.get(screen).add(c);
-		}
-		//else
-		{
-			
-		}	
-	}
+//	public void addColonys_screen(final Integer screen, final Colony c) 
+//	{	
+//		log.debug("Colony added to screen " + screen + ", size : " + colonys_screen.size());
+//		ArrayList<Colony> colonys = colonys_screen.get(screen);
+//		colonys.add(c);
+//		
+//		//if (colonys_screen.size() == 0 || colonys_screen.get(screen) == null)
+//		{
+//		//	colonys_screen.set(screen, new ArrayList<Colony>());
+//		//	colonys_screen.get(screen).add(c);
+//		}
+//		//else
+//		{
+//			
+//		}	
+//	}
 
-	public ArrayList<Colony> getColonys_screen(final Integer screen) {
-		return colonys_screen.get(screen);
-	}
+//	public ArrayList<Colony> getColonys_screen(final Integer screen) {
+//		return colonys_screen.get(screen);
+//	}
 
     public void addNodePheromone(NodePheromone p)
     {

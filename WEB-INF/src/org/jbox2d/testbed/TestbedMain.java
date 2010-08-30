@@ -243,6 +243,7 @@ public class TestbedMain extends PApplet {
 				vb.remove();
 			}
 			
+			// delete the selected woa objects
 			Iterator<WOAObject> i = antworld.garbage.values().iterator();
 			while (i.hasNext())
 			{
@@ -261,6 +262,7 @@ public class TestbedMain extends PApplet {
 				i.remove();
 			}
 
+			// delete the useless tracks 
 			Iterator<GraphTrack> gti = antworld.graphtracks.iterator();
 			while (gti.hasNext())
 			{
@@ -303,7 +305,8 @@ public class TestbedMain extends PApplet {
 		catch (Exception e)
 		{
 			e.printStackTrace();
-		} catch (Throwable e) {
+		} 
+		catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

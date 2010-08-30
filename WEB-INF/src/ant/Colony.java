@@ -18,86 +18,76 @@ import ant.properties.Property;
 import com.unicate.info.ColonyInfo;
 import com.woa.missions.Mission;
 
+public class Colony extends WOAObject {
+	private ArrayList<Ant> ants = new ArrayList<Ant>();;
+	public Queen queen = null;
+	public HashMap<Integer, Mission> missions = new HashMap<Integer, Mission>();
 
-public class Colony extends WOAObject{
-	private ArrayList<Ant> 				ants = new ArrayList<Ant>();;
-	public Queen 						queen = null;
-	public HashMap<Integer, Mission> 	missions = new HashMap<Integer, Mission>();
-	
-	public Colony(Queen q, Position _pos)
-	{	
+	public Colony(Queen q, Position _pos) {
 		super(q.currentBox, _pos);
-		setQueen(q);		
+		setQueen(q);
 		this.setPos(pos.clone());
 		currentBox.world.getColonys().add(this);
 		currentBox.world.addColonys_screen(pos.get_map(), this);
-		type = "colony";		
+		type = "colony";
 		adn.set("size", new Property("size", 10.0f));
 		adn.set("storage_food", new Property("storage_food", 3500.0f));
 		adn.updateCurrent("storage_food", 30);
 		// add the colony shape to the physic world
-		//setMyBody(world.antBox.create_colony(pos.getVec2()));
-		//world.
+		// setMyBody(world.antBox.create_colony(pos.getVec2()));
+		// world.
 		createBody(currentBox);
-		currentBox.world.log.debug("Colony has been created.");		
+		currentBox.world.log.debug("Colony has been created.");
 		this.antCreate();
-	}	
-	
+	}
+
 	@Override
-	public void createBody(AntBox _targetBox)
-	{
-		Body b = _targetBox.CreateJBoxBody(new Vec2 (getSize() 	, getSize()), pos.getVec2(), 0.0f, 1.0f);
+	public void createBody(AntBox _targetBox) {
+		Body b = _targetBox.CreateJBoxBody(new Vec2(getSize(), getSize()),
+				pos.getVec2(), 0.0f, 1.0f);
 		setMyBody(b);
 	}
-		
-	public void life()
-	{
-		try
-		{
+
+	public void life() {
+		try {
 			destroyBody();
 			createBody(currentBox);
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public IDataOutput Export(IDataOutput output)
-	{
+
+	public IDataOutput Export(IDataOutput output) {
 		output.writeObject(getPos());
 		return output;
 	}
 
-
-	public Ant antCreate()
-	{
+	public Ant antCreate() {
 		// create the ant
 		Ant a = new Ant(this);
 		// add the ant to the ants list of the colony
 		getAnts().add(a);
 		return a;
 	}
-	
 
-	public ColonyInfo getColonyInfo()
-	{		
+	public ColonyInfo getColonyInfo() {
 		return new ColonyInfo(ants.size(), adn.properties.get("storage_food"));
 	}
 
-	public float getSize()	{
+	public float getSize() {
 		return ants.size() / 10 + 20;
 	}
-	
+
 	/**
 	 * @return colony's queen
 	 */
 	public Queen getQueen() {
 		return queen;
 	}
-	
+
 	/**
-	 * @param set the colony's queen
+	 * @param set
+	 *            the colony's queen
 	 */
 	public void setQueen(Queen queen) {
 		this.queen = queen;

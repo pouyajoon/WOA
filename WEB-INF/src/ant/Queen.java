@@ -12,44 +12,43 @@ import ant.properties.Property;
 public class Queen extends WOAObject {
 
 	public static final Integer ANT_PRICE = 15;
-	private 			Colony colony;
-	public 				Player player;
-	
+	private Colony colony;
+	public Player player;
+
 	/**
-	 * @param c : the colony of the queen
+	 * @param c
+	 *            : the colony of the queen
 	 */
-	public Queen(AntBox w, Position p, Player _player) 
-	{
+	public Queen(AntBox w, Position p, Player _player) {
 		super(w, p);
 		player = _player;
 		player.setQueen(this);
-		currentBox.world.log.info("queen has born");		
+		currentBox.world.log.info("queen has born");
 		this.type = "queen";
-		adn.set("size", new Property("size", 5.0f));		
+		adn.set("size", new Property("size", 5.0f));
 		adn.set("weight", new Property("weight", 0.0f));
-		adn.set("storage_food", new Property("storage_food", 0));		
+		adn.set("storage_food", new Property("storage_food", 0));
 		adn.set("speed_max", new Property("speed_max", 0));
-		adn.set("acceleration", new Property("acceleration", 0));	
-		Body b = currentBox.CreateJBoxBody(new Vec2(adn.getCurrent("size"), adn.getCurrent("size")), pos.getVec2(), adn.getCurrent("weight"), 0.5f);
+		adn.set("acceleration", new Property("acceleration", 0));
+		Body b = currentBox.CreateJBoxBody(
+				new Vec2(adn.getCurrent("size"), adn.getCurrent("size")),
+				pos.getVec2(), adn.getCurrent("weight"), 0.5f);
 		setMyBody(b);
 		this.setColony(new Colony(this, p));
 	}
 
-	public void life()
-	{
-		if (this.getColony() != null)
-		{
-			if (this.getColony().adn.getCurrent("storage_food") > ANT_PRICE)
-			{
-				if (getColony().getAnts().size() > 800) return;
+	public void life() {
+		if (this.getColony() != null) {
+			if (this.getColony().adn.getCurrent("storage_food") > ANT_PRICE) {
+				if (getColony().getAnts().size() > 800)
+					return;
 				this.getColony().antCreate();
 				this.getColony().adn.reduce("storage_food", ANT_PRICE);
 			}
-		}
-		else
+		} else
 			System.out.println("no colony for this queen");
 	}
-	
+
 	/**
 	 * @return the colony
 	 */
@@ -58,9 +57,10 @@ public class Queen extends WOAObject {
 	}
 
 	/**
-	 * @param colony the colony to set
+	 * @param colony
+	 *            the colony to set
 	 */
 	public void setColony(Colony colony) {
 		this.colony = colony;
-	}	
+	}
 }

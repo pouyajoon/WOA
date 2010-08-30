@@ -21,7 +21,6 @@ public class MyTimer {
 
 	  public void create_tempo()
 	  {
-		  	
 		  if (world.appli != null)
 		  {
 			  	world.log.debug("trying to create tempo, appli: " + world.appli.toString());
@@ -88,17 +87,9 @@ public class MyTimer {
 	    	world.log.debug("water fall : " + worldtime.toString());
 	    	try 
 	    	{
-	    		//if ()
-		    	//world.life();  	
-		    	//world.antBox.m_world.step(1.0f / 30.0f, 10);
 		    	update_so();
-		    	//world.woal.woaobject_update();
-		    	//so.release();
-		    	
 				if (world.appli != null)
-				{
 					world.woal.woaobject_update();
-				}		    	
 	    	}
 	    	catch (Exception e)
 	    	{
@@ -106,5 +97,5 @@ public class MyTimer {
 	    		e.printStackTrace();
 	    	}
 	    }
-	  }
 	}
+}

@@ -54,10 +54,7 @@ public abstract class AbstractExample
     public boolean[] newKeyDown = new boolean[255];
     
     /** General instructions that apply to all tests. */
-    static public String instructionString = "Press left/right to change test\n" +
-    										 "Use the mouse to drag objects\n" +
-    										 "Shift+drag to slingshot bomb\n" +
-    										 "Press 'o' to toggle options panel\n";
+    static public String instructionString = "";
     										
     /** Screen coordinates of mouse */
     public Vec2 mouseScreen = new Vec2();
@@ -158,6 +155,7 @@ public abstract class AbstractExample
 	 */
 	public AbstractExample(TestbedMain _parent) {
 		parent = _parent;
+		this.instructionString = parent.keyBindingsString;
 		m_debugDraw = parent.g;
 		needsReset = true;
 		//m_world.setDrawDebugData(true);

@@ -2,12 +2,9 @@ package ant;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
-import org.jbox2d.collision.shapes.PolygonShape;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
-import org.jbox2d.testbed.BodyUtils;
 import org.red5.io.amf3.IDataOutput;
 
 import woaobject.WOAObject;
@@ -28,7 +25,7 @@ public class Colony extends WOAObject {
 		setQueen(q);
 		this.setPos(pos.clone());
 		currentBox.world.getColonys().add(this);
-		currentBox.world.addColonys_screen(pos.get_map(), this);
+		//currentBox.world.addColonys_screen(pos.get_map(), this);
 		type = "colony";
 		adn.set("size", new Property("size", 10.0f));
 		adn.set("storage_food", new Property("storage_food", 3500.0f));

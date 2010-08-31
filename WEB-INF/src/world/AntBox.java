@@ -11,6 +11,7 @@ import org.jbox2d.dynamics.World;
 import org.jbox2d.dynamics.joints.Joint;
 import org.jbox2d.dynamics.joints.JointDef;
 import org.jbox2d.testbed.AbstractExample;
+import org.red5.server.api.so.ISharedObject;
 import org.slf4j.Logger;
 
 import ant.Colony;
@@ -20,6 +21,7 @@ public class AntBox extends AbstractExample {
 	public Logger log;
 	public AntWorld world;
 	public Integer id = 69;
+	public ISharedObject so;
 
 	public AntBox(AntWorld _world) {
 		super(_world.parent);

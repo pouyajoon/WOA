@@ -24,7 +24,6 @@ public class AntWorld {
 	/** The controller that the AbstractExample runs in */
 	public TestbedMain parent;
 	public static ArrayList<Colony> colonys = new ArrayList<Colony>();
-	public static HashMap<Integer, ArrayList<Colony>> colonys_screen = new HashMap<Integer, ArrayList<Colony>>();
 	public WOAObjectListner woal = null;
 	public ArrayList<NodePheromone> nodepheromones = new ArrayList<NodePheromone>();
 	public ArrayList<GraphTrack> graphtracks = new ArrayList<GraphTrack>();
@@ -45,7 +44,7 @@ public class AntWorld {
 		try {
 			antzone = new AntZone(this, 4);
 			for (Integer i = 0; i < antzone.max_screens; ++i) {
-				colonys_screen.put(i, new ArrayList<Colony>());
+				//colonys_screen.put(i, new ArrayList<Colony>());
 				woal.all_objects_screen.put(i, new ArrayList<WOAObject>());
 			}
 			mytime = new MyTimer(this);
@@ -73,13 +72,6 @@ public class AntWorld {
 		}
 	}
 
-	// add a colony to a screen
-	public void addColonys_screen(final Integer screen, final Colony c) {
-		log.debug("Colony added to screen " + screen + ", size : "
-				+ colonys_screen.size());
-		ArrayList<Colony> colonys = colonys_screen.get(screen);
-		colonys.add(c);
-	}
 
 	public void addNodePheromone(NodePheromone p) {
 		nodepheromones.add(p);
@@ -97,8 +89,6 @@ public class AntWorld {
 		return colonys;
 	}
 
-	public ArrayList<Colony> getColonys_screen(final Integer screen) {
-		return colonys_screen.get(screen);
-	}
+
 
 }

@@ -83,7 +83,7 @@ public class MyTimer {
 	    public void run() 
 	    {
 	    	worldtime++;
-	    	world.log.debug("water fall : " + worldtime.toString());
+	    	world.log.debug("water fall new : " + worldtime.toString());
 	    	try 
 	    	{
 	    		//if ()
@@ -95,9 +95,11 @@ public class MyTimer {
 		    	
 				if (world.appli != null)
 				{
+					
+					world.log.debug("updating woa shared listner");
 					world.woal.woaobject_update();
 				}		    	
-	    	}
+	    	} 
 	    	catch (Exception e)
 	    	{
 	    		world.log.debug("Timer Failure under run : " + e.getLocalizedMessage());

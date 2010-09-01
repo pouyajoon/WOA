@@ -80,7 +80,7 @@ public class WOAObjectListner {
 			{
 				DrawObject dobj = woa.getDrawObject();
 				da.put(woa.id, dobj);	
-			}			
+			}
 			b = b.getNext();	
 		}		
 		world.log.debug("antBox udated : " + antBox_id + ", number : " + da.size());
@@ -92,13 +92,14 @@ public class WOAObjectListner {
 		{
 			if (da != null)
 			{				
-				appli.log.debug("dynamics size is :" + da.size());
+				appli.log.debug("when updates [" + so.getName() + "] dynamics size is :" + da.size());
 				if (so != null)
 				{
 					so.beginUpdate();
 					so.setAttribute("message", "update");
 					so.setAttribute("dynamics", da);
-					so.endUpdate();					
+					so.endUpdate();	
+					
 				}
 			}
 			else
@@ -115,6 +116,7 @@ public class WOAObjectListner {
 		for (int i = 0; i < world.antzone.max_screens; ++i)
 		{
 			da = new HashMap<Integer, DrawObject>();
+			//world.log.debug("da size on creation: " + da.size());
 			antBox_update(i, da);
 			updateSharedObjectForAntBox(world.antzone.boxes.get(i).so, da);			
 		}

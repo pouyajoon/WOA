@@ -20,7 +20,7 @@ public class AntZone {
 	// number of screen to set in the world
 	public static Integer zone_size = 1;
 	// number of screen to set in the world
-	public Integer max_screens = 0;
+	public static Integer max_screens = 0;
 
 	public AntZone(AntWorld _world, Integer _zone_size) {
 		super();

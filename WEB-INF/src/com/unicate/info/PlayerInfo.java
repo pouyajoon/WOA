@@ -17,7 +17,5 @@ public class PlayerInfo
 			System.out.println("exporting colony info:" + ci.toString());
 		}
 	}
-	
-
 }
 

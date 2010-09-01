@@ -17,6 +17,7 @@ import com.red5.MySecurityHandler;
 import com.unicate.DrawList;
 import com.unicate.DrawObject;
 import com.unicate.info.PlayerInfo;
+import com.unicate.info.WOAServerConfigurationInfo;
 
 import food.Food;
 
@@ -53,6 +54,11 @@ public class Application extends ApplicationAdapter {
 		return null;
 	}
 
+	public WOAServerConfigurationInfo getServerWorldConfiguration(String user_name)
+	{
+		WOAServerConfigurationInfo woaci = new WOAServerConfigurationInfo(world.antzone.zone_size, world.antzone.max_screens);
+		return woaci;		
+	}
 	public DrawList get_this_body(Integer id) {
 		log.debug("where is this body " + id);
 		ArrayList<DrawObject> woalist = new ArrayList<DrawObject>();

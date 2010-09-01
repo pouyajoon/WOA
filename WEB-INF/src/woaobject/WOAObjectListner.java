@@ -72,6 +72,7 @@ public class WOAObjectListner {
 	{
 		
 		Body b = world.antzone.boxes.get(antBox_id).m_world.getBodyList();
+		
 		while (b != null)
 		{
 			WOAObject woa = (WOAObject)b.getUserData();
@@ -82,7 +83,7 @@ public class WOAObjectListner {
 			}			
 			b = b.getNext();	
 		}		
-		
+		world.log.debug("antBox udated : " + antBox_id + ", number : " + da.size());
 	}
 	
 	public void updateSharedObjectForAntBox(ISharedObject so, HashMap<Integer, DrawObject> da)
@@ -110,9 +111,10 @@ public class WOAObjectListner {
 	
 	public void woaobject_update()
 	{
-		HashMap<Integer, DrawObject> da = new HashMap<Integer, DrawObject>();
+		HashMap<Integer, DrawObject> da = null;
 		for (int i = 0; i < world.antzone.max_screens; ++i)
 		{
+			da = new HashMap<Integer, DrawObject>();
 			antBox_update(i, da);
 			updateSharedObjectForAntBox(world.antzone.boxes.get(i).so, da);			
 		}

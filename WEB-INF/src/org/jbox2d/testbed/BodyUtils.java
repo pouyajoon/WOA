@@ -34,6 +34,8 @@ public class BodyUtils {
 		return angle_r;
     }	
 	
+    
+    // ici je rajoute des commentaires
 	public static AABB ViewBox(WOAObject woaobject, Vec2 p, Integer zone)
 	{
 	   	//Vec2 p = world.m_debugDraw.screenToWorld(myBody.getPosition());

@@ -1,4 +1,4 @@
-package ant;
+package vnd.woaobject.children;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -11,26 +11,21 @@ import org.jbox2d.dynamics.contacts.ContactPoint;
 import org.jbox2d.dynamics.joints.Joint;
 import org.jbox2d.testbed.BodyUtils;
 
-import players.Player;
 
-import woaobject.WOAObject;
-import woaobject.pheromone.NodePheromone;
-import woaobject.pheromone.Pheromone;
+import vnd.players.Player;
+import vnd.track.MissionTrack;
+import vnd.woaobject.WOAObject;
+import vnd.woaobject.properties.Property;
+import vnd.world.AntBox;
+import vnd.world.AntZone;
 
-import world.AntBox;
-import world.AntZone;
 
-import ant.properties.Property;
 
-import com.woa.missions.Mission;
-import com.woa.missions.MissionTrack;
 
 public class Ant extends WOAObject {
 	private Colony colony;
 	public Joint mandible = null;
-	public Mission currentMission = null;
 	public MissionTrack currentTrackMission = null;
-	public Pheromone lastPheromone = null;
 
 	public Ant(Colony c) {
 		super(c.currentBox, c.getPos().clone());
@@ -432,8 +427,6 @@ public class Ant extends WOAObject {
 
 	public String toString() {
 		String s = "ant ID : " + id.toString() + ", ";
-		if (currentMission != null)
-			s += currentMission.toString();
 		if (currentTrackMission != null)
 			s += currentTrackMission.toString();
 		return s;

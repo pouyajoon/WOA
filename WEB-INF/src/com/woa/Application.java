@@ -9,9 +9,10 @@ import org.red5.server.api.IScope;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import world.AntBox;
-import world.AntWorld;
-import world.Position;
+import vnd.woaobject.children.Food;
+import vnd.world.AntBox;
+import vnd.world.AntWorld;
+import vnd.world.Position;
 
 import com.red5.MySecurityHandler;
 import com.unicate.DrawList;
@@ -19,7 +20,6 @@ import com.unicate.DrawObject;
 import com.unicate.info.PlayerInfo;
 import com.unicate.info.WOAServerConfigurationInfo;
 
-import food.Food;
 
 public class Application extends ApplicationAdapter {
 	public Logger log = LoggerFactory.getLogger(Application.class);

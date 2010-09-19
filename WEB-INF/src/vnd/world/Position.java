@@ -1,11 +1,11 @@
-package world;
+package vnd.world;
 
 import java.io.Serializable;
 
 import org.jbox2d.common.Vec2;
 
 public class Position implements Serializable {
-	private static final long serialVersionUID = -6226828753812699251L;
+
 	public float x;
 	public float y;
 	public Integer _map;

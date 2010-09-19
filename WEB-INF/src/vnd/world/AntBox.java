@@ -1,4 +1,4 @@
-package world;
+package vnd.world;
 
 import org.jbox2d.collision.AABB;
 import org.jbox2d.collision.shapes.CircleDef;
@@ -14,8 +14,9 @@ import org.jbox2d.testbed.AbstractExample;
 import org.red5.server.api.so.ISharedObject;
 import org.slf4j.Logger;
 
-import ant.Colony;
-import ant.Queen;
+import vnd.woaobject.children.Colony;
+import vnd.woaobject.children.Queen;
+
 
 public class AntBox extends AbstractExample {
 	public Logger log;

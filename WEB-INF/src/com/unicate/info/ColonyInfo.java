@@ -1,6 +1,6 @@
 package com.unicate.info;
 
-import ant.properties.Property;
+import vnd.woaobject.properties.Property;
 
 public class ColonyInfo
 {

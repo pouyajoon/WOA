@@ -1,15 +1,13 @@
-package com.woa.missions;
+package vnd.track;
 
 import java.util.ArrayList;
 
 import org.jbox2d.testbed.BodyUtils;
 
-import woaobject.WOAObject;
-import woaobject.pheromone.NodePheromone;
-import woaobject.track.GraphTrack;
-import woaobject.track.TrackNode;
-import world.AntWorld;
-import ant.Ant;
+import vnd.woaobject.WOAObject;
+import vnd.woaobject.children.Ant;
+import vnd.woaobject.children.NodePheromone;
+import vnd.world.AntWorld;
 
 public class MissionTrack {
 	// states definition

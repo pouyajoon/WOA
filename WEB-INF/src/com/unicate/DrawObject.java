@@ -2,7 +2,7 @@ package com.unicate;
 
 import java.io.Serializable;
 
-import world.Position;
+import vnd.world.Position;
 
 public class DrawObject implements Serializable 
 {

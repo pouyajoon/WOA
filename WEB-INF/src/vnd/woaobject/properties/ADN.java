@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ant.properties;
+package vnd.woaobject.properties;
 
 import java.util.HashMap;
 

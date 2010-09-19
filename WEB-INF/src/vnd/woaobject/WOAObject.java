@@ -1,4 +1,4 @@
-package woaobject;
+package vnd.woaobject;
 
 import java.util.HashMap;
 
@@ -9,13 +9,13 @@ import org.jbox2d.dynamics.contacts.ContactPoint;
 import org.jbox2d.dynamics.joints.Joint;
 import org.jbox2d.dynamics.joints.RevoluteJointDef;
 
-import players.Player;
-import woaobject.track.TrackNode;
-import world.AntBox;
-import world.Position;
-import ant.Ant;
-import ant.properties.ADN;
-import ant.properties.Property;
+import vnd.players.Player;
+import vnd.track.TrackNode;
+import vnd.woaobject.children.Ant;
+import vnd.woaobject.properties.ADN;
+import vnd.woaobject.properties.Property;
+import vnd.world.AntBox;
+import vnd.world.Position;
 
 import com.unicate.DrawObject;
 

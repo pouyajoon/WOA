@@ -38,7 +38,7 @@ import org.jbox2d.dynamics.joints.Joint;
 import org.jbox2d.dynamics.joints.MouseJoint;
 import org.jbox2d.dynamics.joints.MouseJointDef;
 
-import woaobject.WOAObject;
+import vnd.woaobject.WOAObject;
 
 public abstract class AbstractExample
 {

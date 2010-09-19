@@ -1,13 +1,13 @@
-package woaobject.track;
+package vnd.track;
 
 import java.util.HashMap;
 
 import org.jbox2d.common.Vec2;
 
-import woaobject.WOAObject;
-import world.Position;
-import ant.Ant;
-import ant.properties.Property;
+import vnd.woaobject.WOAObject;
+import vnd.woaobject.children.Ant;
+import vnd.woaobject.properties.Property;
+import vnd.world.Position;
 
 public class TrackNode {
 	public WOAObject woao = null;

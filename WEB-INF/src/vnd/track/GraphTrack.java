@@ -1,4 +1,4 @@
-package woaobject.track;
+package vnd.track;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,13 +8,13 @@ import javax.swing.text.StyledEditorKit.BoldAction;
 import org.jbox2d.common.Color3f;
 import org.jbox2d.common.Vec2;
 
-import woaobject.WOAObject;
-import woaobject.pheromone.NodePheromone;
-import world.AntBox;
-import world.AntWorld;
-import world.AntZone;
-import world.Position;
-import ant.Ant;
+import vnd.woaobject.WOAObject;
+import vnd.woaobject.children.Ant;
+import vnd.woaobject.children.NodePheromone;
+import vnd.world.AntBox;
+import vnd.world.AntWorld;
+import vnd.world.AntZone;
+import vnd.world.Position;
 
 public class GraphTrack {
 	public AntWorld w = null;

@@ -10,7 +10,7 @@ import org.jbox2d.collision.shapes.Shape;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
 
-import woaobject.WOAObject;
+import vnd.woaobject.WOAObject;
 
 public class BodyUtils {
 	

@@ -1,14 +1,14 @@
-package woaobject.pheromone;
+package vnd.woaobject.children;
 
 import org.jbox2d.dynamics.Body;
 import org.jbox2d.testbed.BodyUtils;
 
-import woaobject.WOAObject;
-import woaobject.track.GraphTrack;
-import woaobject.track.TrackNode;
-import world.AntBox;
-import world.Position;
-import ant.properties.Property;
+import vnd.track.GraphTrack;
+import vnd.track.TrackNode;
+import vnd.woaobject.WOAObject;
+import vnd.woaobject.properties.Property;
+import vnd.world.AntBox;
+import vnd.world.Position;
 
 public class NodePheromone extends WOAObject {
 	public GraphTrack track = null;

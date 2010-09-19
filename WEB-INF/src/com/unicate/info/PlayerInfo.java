@@ -1,7 +1,7 @@
 package com.unicate.info;
 
-import players.Player;
-import ant.Queen;
+import vnd.players.Player;
+import vnd.woaobject.children.Queen;
 
 public class PlayerInfo 
 {

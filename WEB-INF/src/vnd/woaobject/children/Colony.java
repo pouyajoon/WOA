@@ -1,4 +1,4 @@
-package ant;
+package vnd.woaobject.children;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,18 +7,16 @@ import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
 import org.red5.io.amf3.IDataOutput;
 
-import woaobject.WOAObject;
-import world.AntBox;
-import world.Position;
-import ant.properties.Property;
+import vnd.woaobject.WOAObject;
+import vnd.woaobject.properties.Property;
+import vnd.world.AntBox;
+import vnd.world.Position;
 
 import com.unicate.info.ColonyInfo;
-import com.woa.missions.Mission;
 
 public class Colony extends WOAObject {
 	private ArrayList<Ant> ants = new ArrayList<Ant>();;
 	public Queen queen = null;
-	public HashMap<Integer, Mission> missions = new HashMap<Integer, Mission>();
 
 	public Colony(Queen q, Position _pos) {
 		super(q.currentBox, _pos);

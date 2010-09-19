@@ -1,4 +1,4 @@
-package world;
+package vnd.world;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,17 +7,17 @@ import java.util.Iterator;
 import org.jbox2d.testbed.TestbedMain;
 import org.slf4j.Logger;
 
-import players.Player;
-import woaobject.WOAObject;
-import woaobject.WOAObjectListner;
-import woaobject.pheromone.NodePheromone;
-import woaobject.track.GraphTrack;
-import ant.Colony;
+import vnd.players.Player;
+import vnd.track.GraphTrack;
+import vnd.woaobject.WOAObject;
+import vnd.woaobject.WOAObjectListner;
+import vnd.woaobject.children.Colony;
+import vnd.woaobject.children.Food;
+import vnd.woaobject.children.NodePheromone;
 
 import com.woa.Application;
 import com.woa.MyTimer;
 
-import food.Food;
 
 public class AntWorld {
 

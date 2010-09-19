@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	<appender name="WOA" class="ch.qos.logback.core.FileAppender">
-		<File>C:\applications\red5\log\woa_server_bisou.log</File>
+		<File>D:\woa\woa_server_bisou.log</File>
 		<Append>false</Append>
 		<Encoding>UTF-8</Encoding>
 		<BufferedIO>false</BufferedIO>

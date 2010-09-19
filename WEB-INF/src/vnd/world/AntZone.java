@@ -1,4 +1,4 @@
-package world;
+package vnd.world;
 
 import java.util.HashMap;
 

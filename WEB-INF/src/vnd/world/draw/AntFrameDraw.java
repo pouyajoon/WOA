@@ -1,4 +1,4 @@
-package world.draw;
+package vnd.world.draw;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;

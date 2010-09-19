@@ -6,10 +6,10 @@ import java.util.Iterator;
 import org.jbox2d.common.Vec2;
 
 import processing.core.PApplet;
-import world.AntBox;
-import world.Position;
-import ant.Queen;
-import food.Food;
+import vnd.woaobject.children.Food;
+import vnd.woaobject.children.Queen;
+import vnd.world.AntBox;
+import vnd.world.Position;
 
 class KeyPressEventHandler {
 	protected ArrayList<KeyPressEvent> keyPressEvents = new ArrayList<KeyPressEvent>();

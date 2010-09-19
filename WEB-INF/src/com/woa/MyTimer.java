@@ -10,7 +10,7 @@ import org.red5.server.api.so.ISharedObject;
 import org.red5.server.api.so.ISharedObjectService;
 import org.red5.server.so.SharedObjectService;
 
-import world.AntWorld;
+import vnd.world.AntWorld;
 
 public class MyTimer {
 	  Toolkit toolkit =  null;

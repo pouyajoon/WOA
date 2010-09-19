@@ -1,13 +1,13 @@
-package ant;
+package vnd.woaobject.children;
 
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
 
-import players.Player;
-import woaobject.WOAObject;
-import world.AntBox;
-import world.Position;
-import ant.properties.Property;
+import vnd.players.Player;
+import vnd.woaobject.WOAObject;
+import vnd.woaobject.properties.Property;
+import vnd.world.AntBox;
+import vnd.world.Position;
 
 public class Queen extends WOAObject {
 

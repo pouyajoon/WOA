@@ -35,22 +35,22 @@ import org.red5.server.api.service.ServiceUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import players.Player;
 import processing.core.PApplet;
-import woaobject.WOAObject;
-import woaobject.pheromone.NodePheromone;
-import woaobject.track.GraphTrack;
-import woaobject.track.TrackNode;
-import world.AntBox;
-import world.AntWorld;
-import world.Position;
-import ant.Queen;
+import vnd.players.Player;
+import vnd.track.GraphTrack;
+import vnd.track.TrackNode;
+import vnd.woaobject.WOAObject;
+import vnd.woaobject.children.Food;
+import vnd.woaobject.children.NodePheromone;
+import vnd.woaobject.children.Queen;
+import vnd.world.AntBox;
+import vnd.world.AntWorld;
+import vnd.world.Position;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.util.StatusPrinter;
 
 import com.woa.Application;
 
-import food.Food;
 
 /**
  * TestbedMain is the holder PApplet for the entire testbed. It has first stab

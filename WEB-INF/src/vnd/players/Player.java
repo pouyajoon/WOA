@@ -1,8 +1,9 @@
-package players;
+package vnd.players;
 
 import java.util.ArrayList;
 
-import ant.Queen;
+import vnd.woaobject.children.Queen;
+
 
 public class Player {
 	public String name;

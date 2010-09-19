@@ -1,14 +1,14 @@
-package food;
+package vnd.woaobject.children;
 
 //import org.jbox2d.collision.CircleShape;
 import org.jbox2d.collision.shapes.CircleShape;
 import org.jbox2d.dynamics.Body;
 import org.jbox2d.testbed.BodyUtils;
 
-import woaobject.WOAObject;
-import world.AntBox;
-import world.Position;
-import ant.properties.Property;
+import vnd.woaobject.WOAObject;
+import vnd.woaobject.properties.Property;
+import vnd.world.AntBox;
+import vnd.world.Position;
 
 public class Food extends WOAObject {
 	public Food(AntBox w, Position pos, float size) {

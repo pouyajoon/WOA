@@ -14,6 +14,7 @@ public class Player {
 		this.name = name;
 	}
 
+	/// divers trucs
 	public void setQueen(Queen q) {
 		queens.add(q);
 	}

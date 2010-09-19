@@ -109,6 +109,7 @@ public class Application extends ApplicationAdapter {
 	 * super.appDisconnect(conn); }
 	 */
 
+	// des trucs...
 	public String getmyName() {
 		return "I don’t Know";
 	}

@@ -8,6 +8,8 @@ public class ColonyInfo
 	public float food_current = 0;
 	public float food_max = 0;
 	
+	
+	// des trucs
 	public ColonyInfo(Integer _antNumber, Property food_storage)
 	{
 		antNumInteger = _antNumber;

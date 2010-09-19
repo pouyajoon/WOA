@@ -31,6 +31,7 @@ public class Application extends ApplicationAdapter {
 		log.info("Hello Man!");
 	}
 
+	// commentaires
 	public String createFood(float pos_x, float pos_y, Integer worldBox_id) {
 		float size = 120;
 		AntBox requestedBox = world.antzone.boxes.get(worldBox_id);

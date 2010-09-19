@@ -26,6 +26,7 @@ package org.jbox2d.testbed;
 public class TestSettings {
     public int hz;
 
+    // comments
     public int iterationCount;
 
     public boolean enableWarmStarting;

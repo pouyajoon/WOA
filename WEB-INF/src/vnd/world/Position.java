@@ -57,7 +57,7 @@ public class Position implements Serializable {
 	public void set_map(Integer _map) {
 		this._map = _map;
 	}
-
+	//	git test for comments
 	public Integer get_map() {
 		return _map;
 	}

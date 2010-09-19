@@ -72,7 +72,7 @@ public class AntWorld {
 		}
 	}
 
-
+//	/comments
 	public void addNodePheromone(NodePheromone p) {
 		nodepheromones.add(p);
 	}
